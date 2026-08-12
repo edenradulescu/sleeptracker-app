@@ -1,0 +1,147 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Comfortaa:wght@400;700&display=swap');
+
+/* Base styles */
+* {
+  font-family: 'Quicksand', sans-serif;
+}
+
+.sleep-background {
+  --background: linear-gradient(135deg, #1e2b6b 0%, #373B7B 60%, #5643CC 100%);
+  height: 100%;
+}
+
+.page-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* Header and title styles */
+ion-toolbar {
+  --background: #373B7B;
+}
+
+.fancy-title {
+  font-family: 'Comfortaa', cursive;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.main-heading {
+  color: white;
+  font-family: 'Comfortaa', cursive;
+  font-size: 2.2rem;
+  margin-bottom: 0.2rem;
+  text-align: center;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.tagline {
+  color: #d1d1f5;
+  text-align: center;
+  font-size: 1rem;
+  margin-bottom: 2rem;
+}
+
+/* Action Buttons */
+.action-buttons {
+  margin-bottom: 2rem;
+}
+
+.custom-button {
+  --border-radius: 12px;
+  --background: #5643CC;
+  --background-activated: #4334a9;
+  font-weight: 600;
+  font-size: 1rem;
+  height: 50px;
+  
+  ion-icon {
+    font-size: 1.2rem;
+    margin-right: 8px;
+  }
+}
+
+ion-grid {
+  padding: 0;
+}
+
+ion-row {
+  margin-bottom: 1rem;
+}
+
+/* Recent Data Card Styles */
+.recent-data-section {
+  margin-bottom: 1rem;
+}
+
+.custom-card {
+  border-radius: 16px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  background: rgba(255, 255, 255, 0.9);
+  margin-bottom: 1rem;
+  overflow: visible;
+}
+
+.card-title {
+  color: #373B7B;
+  font-family: 'Comfortaa', cursive;
+  font-size: 1.4rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  
+  ion-icon {
+    font-size: 1.5rem;
+    margin-right: 8px;
+    color: #5643CC;
+  }
+}
+
+/* Detail row styles */
+.sleep-details, .sleepiness-details {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(214, 214, 255, 0.3);
+  border-radius: 12px;
+  padding: 10px 12px;
+}
+
+.detail-label {
+  display: flex;
+  align-items: center;
+  color: #373B7B;
+  font-weight: 600;
+  
+  ion-icon {
+    font-size: 1.2rem;
+    margin-right: 8px;
+    color: #5643CC;
+  }
+}
+
+.detail-value {
+  color: #373B7B;
+  font-weight: 500;
+}
+
+.total-sleep, .feeling-description {
+  background: rgba(86, 67, 204, 0.1);
+  
+  .detail-label {
+    color: #5643CC;
+  }
+  
+  .detail-value {
+    color: #5643CC;
+    font-weight: 600;
+  }
+}

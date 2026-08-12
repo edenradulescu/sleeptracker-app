@@ -1,0 +1,66 @@
+<!-- sleep-history.page.html -->
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="fancy-title">Sleep History</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="sleep-background ion-padding">
+  <div class="page-container">
+    <h1 class="main-heading">Your Sleep Journey</h1>
+    <p class="tagline">Track and understand your sleep patterns</p>
+    
+    <div *ngIf="sleepData.length === 0" class="empty-state">
+      <ion-icon name="bed-outline" class="empty-icon"></ion-icon>
+      <p class="empty-message">No sleep data logged yet. Start tracking your sleep!</p>
+    </div>
+    
+    <div *ngFor="let sleep of sleepData" class="sleep-entry-card">
+      <ion-card class="custom-card">
+        <ion-card-header>
+          <ion-card-title class="card-title">
+            <ion-icon name="moon-outline"></ion-icon>
+            {{ sleep.dateString() }}
+          </ion-card-title>
+        </ion-card-header>
+        
+        <ion-card-content>
+          <div class="sleep-details">
+            <div class="detail-row">
+              <div class="detail-label">
+                <ion-icon name="bed-outline"></ion-icon>
+                <span>Bedtime</span>
+              </div>
+              <div class="detail-value">{{ formatTime(sleep.startTime) }}</div>
+            </div>
+            
+            <div class="detail-row">
+              <div class="detail-label">
+                <ion-icon name="sunny-outline"></ion-icon>
+                <span>Wake-up Time</span>
+              </div>
+              <div class="detail-value">{{ formatTime(sleep.endTime) }}</div>
+            </div>
+            
+            <div class="detail-row total-sleep">
+              <div class="detail-label">
+                <ion-icon name="time-outline"></ion-icon>
+                <span>Total Sleep</span>
+              </div>
+              <div class="detail-value">{{ sleep.summaryString() }}</div>
+            </div>
+          </div>
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </div>
+  
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="tertiary" routerLink="/log-sleep">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

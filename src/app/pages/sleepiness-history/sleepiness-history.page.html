@@ -1,0 +1,63 @@
+<!-- sleepiness-history.page.html -->
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="fancy-title">Sleepiness History</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="sleep-background ion-padding">
+  <div class="page-container">
+    <h1 class="main-heading">Your Alertness Journey</h1>
+    <p class="tagline">Track your energy and sleepiness levels</p>
+    
+    <div *ngIf="sleepinessData.length === 0" class="empty-state">
+      <ion-icon name="cloud-outline" class="empty-icon"></ion-icon>
+      <p class="empty-message">No sleepiness data logged yet. Start tracking!</p>
+    </div>
+    
+    <div *ngFor="let entry of sleepinessData" class="sleepiness-entry-card">
+      <ion-card class="custom-card">
+        <ion-card-header>
+          <ion-card-title class="card-title">
+            <ion-icon name="speedometer-outline"></ion-icon>
+            Sleepiness Level
+            <ion-badge 
+              [color]="getLevelColor(entry.sleepinessValue)" 
+              class="level-badge">
+              {{ entry.sleepinessValue }}/7
+            </ion-badge>
+          </ion-card-title>
+        </ion-card-header>
+        
+        <ion-card-content>
+          <div class="sleepiness-details">
+            <div class="detail-row">
+              <div class="detail-label">
+                <ion-icon name="time-outline"></ion-icon>
+                <span>When</span>
+              </div>
+              <div class="detail-value">{{ formatDateTime(entry.loggedAt) }}</div>
+            </div>
+            
+            <div class="detail-row feeling-description">
+              <div class="detail-label">
+                <ion-icon name="cloud-outline"></ion-icon>
+                <span>Feeling</span>
+              </div>
+              <div class="detail-value">{{ entry.summaryString() }}</div>
+            </div>
+          </div>
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </div>
+  
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="tertiary" routerLink="/sleepiness">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

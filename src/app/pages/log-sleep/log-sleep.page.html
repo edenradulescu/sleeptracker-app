@@ -1,0 +1,72 @@
+<!-- log-sleep.page.html -->
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="fancy-title">Sleep Log</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding sleep-background">
+  <div class="page-container">
+    <h1 class="main-heading">Time to rest...</h1>
+    <p class="tagline">Track your sleep journey for better health insights</p>
+    
+    <ion-card class="custom-card">
+      <ion-card-header>
+        <ion-card-title class="card-title">
+          <ion-icon name="moon-outline"></ion-icon>
+          Log Your Sleep
+        </ion-card-title>
+        <ion-card-subtitle class="card-subtitle">When did you drift off and wake up?</ion-card-subtitle>
+      </ion-card-header>
+      
+      <ion-card-content>
+        <div class="time-container">
+          <div class="time-section">
+            <div class="time-label">
+              <ion-icon name="bed-outline"></ion-icon>
+              <span>Bedtime</span>
+            </div>
+            <div class="datetime-container">
+              <ion-datetime presentation="date-time" [(ngModel)]="sleepStartDate" class="custom-datetime"></ion-datetime>
+            </div>
+          </div>
+          
+          <div class="divider">
+            <div class="line"></div>
+            <ion-icon name="arrow-down-outline" class="arrow-icon"></ion-icon>
+            <div class="line"></div>
+          </div>
+          
+          <div class="time-section">
+            <div class="time-label">
+              <ion-icon name="sunny-outline"></ion-icon>
+              <span>Wake-up Time</span>
+            </div>
+            <div class="datetime-container">
+              <ion-datetime presentation="date-time" [(ngModel)]="sleepEndDate" class="custom-datetime"></ion-datetime>
+            </div>
+          </div>
+        </div>
+        
+        <div class="ion-padding-top">
+          <ion-button expand="block" color="tertiary" class="submit-button" (click)="logSleep()">
+            <ion-icon name="cloud-upload-outline" slot="start"></ion-icon>
+            Save Sleep Log
+          </ion-button>
+        </div>
+      </ion-card-content>
+    </ion-card>
+    
+    <div class="sleep-tips">
+      <h3>Sleep Health Tips</h3>
+      <ul>
+        <li>Aim for 7-9 hours of sleep per night</li>
+        <li>Keep a consistent sleep schedule</li>
+        <li>Create a restful environment</li>
+      </ul>
+    </div>
+  </div>
+</ion-content>

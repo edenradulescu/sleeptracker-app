@@ -1,0 +1,78 @@
+<!-- sleepiness.page.html -->
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="fancy-title">Log Sleepiness</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding sleep-background">
+  <div class="page-container">
+    <h1 class="main-heading">Stanford Sleepiness Scale</h1>
+    <p class="tagline">How alert or sleepy are you feeling?</p>
+    
+    <ion-card class="custom-card">
+      <ion-card-header>
+        <ion-card-title class="card-title">
+          <ion-icon name="cloud-outline"></ion-icon>
+          Sleepiness Assessment
+        </ion-card-title>
+        <ion-card-subtitle class="card-subtitle">Rate your current alertness level</ion-card-subtitle>
+      </ion-card-header>
+      
+      <ion-card-content>
+        <div class="sleepiness-container">
+          <div class="time-section">
+            <div class="time-label">
+              <ion-icon name="time-outline"></ion-icon>
+              <span>When did you feel this way?</span>
+            </div>
+            <div class="datetime-container">
+              <ion-datetime presentation="date-time" [(ngModel)]="loggedAt" class="custom-datetime"></ion-datetime>
+            </div>
+          </div>
+          
+          <div class="sleepiness-level">
+            <div class="level-label">
+              <ion-icon name="speedometer-outline"></ion-icon>
+              <span>Sleepiness Level ({{sleepinessLevel}})</span>
+            </div>
+            <ion-range 
+              min="1" 
+              max="7" 
+              step="1" 
+              snaps="true" 
+              color="tertiary"
+              [(ngModel)]="sleepinessLevel"
+              class="custom-range">
+              <ion-label slot="start">Alert</ion-label>
+              <ion-label slot="end">Sleepy</ion-label>
+            </ion-range>
+            
+            <ion-text class="level-description">
+              <p>{{sleepinessDescription}}</p>
+            </ion-text>
+          </div>
+        
+          <div class="ion-padding-top">
+            <ion-button expand="block" color="tertiary" class="submit-button" (click)="logSleepiness()">
+              <ion-icon name="cloud-upload-outline" slot="start"></ion-icon>
+              Save Sleepiness Level
+            </ion-button>
+          </div>
+        </div>
+      </ion-card-content>
+    </ion-card>
+    
+    <div class="sleep-tips">
+      <h3>Stanford Sleepiness Scale Guide</h3>
+      <ul>
+        <li>1 = Feeling active, vital, alert, or wide awake</li>
+        <li>4 = Somewhat foggy, let down</li>
+        <li>7 = Almost falling asleep, fighting sleep</li>
+      </ul>
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,126 @@
+<!-- home.page.html -->
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-title class="fancy-title">Sleep Tracker</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="sleep-background">
+  <div class="page-container">
+    <h1 class="main-heading">Track Your Sleep</h1>
+    <p class="tagline">Monitor your sleep patterns for better health</p>
+    
+    <div class="action-buttons">
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-button 
+              expand="block" 
+              color="tertiary" 
+              class="custom-button" 
+              routerLink="/log-sleep">
+              <ion-icon name="bed-outline" slot="start"></ion-icon>
+              Log Sleep
+            </ion-button>
+          </ion-col>
+          <ion-col>
+            <ion-button 
+              expand="block" 
+              color="tertiary" 
+              class="custom-button" 
+              routerLink="/sleepiness">
+              <ion-icon name="cloud-outline" slot="start"></ion-icon>
+              Log Sleepiness
+            </ion-button>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-button 
+              expand="block" 
+              color="tertiary" 
+              class="custom-button" 
+              routerLink="/sleep-history">
+              <ion-icon name="list-outline" slot="start"></ion-icon>
+              Sleep History
+            </ion-button>
+          </ion-col>
+          <ion-col>
+            <ion-button 
+              expand="block" 
+              color="tertiary" 
+              class="custom-button" 
+              routerLink="/sleepiness-history">
+              <ion-icon name="analytics-outline" slot="start"></ion-icon>
+              Sleepiness Log
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+    
+    <!-- Recent Sleep Card -->
+    <div *ngIf="recentSleep" class="recent-data-section">
+      <ion-card class="custom-card">
+        <ion-card-header>
+          <ion-card-title class="card-title">
+            <ion-icon name="moon-outline"></ion-icon>
+            Recent Sleep
+          </ion-card-title>
+        </ion-card-header>
+        
+        <ion-card-content>
+          <div class="sleep-details">
+            <div class="detail-row">
+              <div class="detail-label">
+                <ion-icon name="calendar-outline"></ion-icon>
+                <span>Date</span>
+              </div>
+              <div class="detail-value">{{ recentSleep.dateString() }}</div>
+            </div>
+            
+            <div class="detail-row total-sleep">
+              <div class="detail-label">
+                <ion-icon name="time-outline"></ion-icon>
+                <span>Duration</span>
+              </div>
+              <div class="detail-value">{{ recentSleep.summaryString() }}</div>
+            </div>
+          </div>
+        </ion-card-content>
+      </ion-card>
+    </div>
+    
+    <!-- Recent Sleepiness Card -->
+    <div *ngIf="recentSleepiness" class="recent-data-section">
+      <ion-card class="custom-card">
+        <ion-card-header>
+          <ion-card-title class="card-title">
+            <ion-icon name="speedometer-outline"></ion-icon>
+            Recent Sleepiness
+          </ion-card-title>
+        </ion-card-header>
+        
+        <ion-card-content>
+          <div class="sleepiness-details">
+            <div class="detail-row">
+              <div class="detail-label">
+                <ion-icon name="time-outline"></ion-icon>
+                <span>When</span>
+              </div>
+              <div class="detail-value">{{ formatDateTime(recentSleepiness.loggedAt) }}</div>
+            </div>
+            
+            <div class="detail-row feeling-description">
+              <div class="detail-label">
+                <ion-icon name="cloud-outline"></ion-icon>
+                <span>Level</span>
+              </div>
+              <div class="detail-value">{{ recentSleepiness.summaryString() }}</div>
+            </div>
+          </div>
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </div>
+</ion-content>

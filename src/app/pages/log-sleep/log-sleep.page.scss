@@ -1,0 +1,184 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Comfortaa:wght@400;700&display=swap');
+
+/* Base styles */
+* {
+  font-family: 'Quicksand', sans-serif;
+}
+
+.sleep-background {
+  --background: linear-gradient(135deg, #1e2b6b 0%, #373B7B 60%, #5643CC 100%);
+}
+
+.page-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Header and title styles */
+ion-toolbar {
+  --background: #373B7B;
+}
+
+.fancy-title {
+  font-family: 'Comfortaa', cursive;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.main-heading {
+  color: white;
+  font-family: 'Comfortaa', cursive;
+  font-size: 2.2rem;
+  margin-bottom: 0.2rem;
+  text-align: center;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.tagline {
+  color: #d1d1f5;
+  text-align: center;
+  font-size: 1rem;
+  margin-bottom: 2rem;
+}
+
+/* Card styles */
+.custom-card {
+  border-radius: 16px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  background: rgba(255, 255, 255, 0.9);
+  margin-bottom: 2rem;
+  overflow: visible;
+}
+
+.card-title {
+  color: #373B7B;
+  font-family: 'Comfortaa', cursive;
+  font-size: 1.4rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  
+  ion-icon {
+    font-size: 1.5rem;
+    margin-right: 8px;
+    color: #5643CC;
+  }
+}
+
+.card-subtitle {
+  color: #666;
+  font-size: 1rem;
+  margin-top: 4px;
+}
+
+/* DateTime containers */
+.time-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.time-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(214, 214, 255, 0.3);
+  border-radius: 12px;
+  padding: 12px;
+}
+
+.time-label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  color: #373B7B;
+  font-weight: 600;
+  
+  ion-icon {
+    font-size: 1.2rem;
+    margin-right: 6px;
+    color: #5643CC;
+  }
+}
+
+.datetime-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+ion-datetime {
+  --background: transparent;
+  margin: 0 auto;
+  --color: #373B7B;
+  --placeholder-color: #9494c7;
+  border-radius: 8px;
+  padding: 4px;
+  
+  &::part(active) {
+    color: #5643CC;
+  }
+}
+
+/* Divider styles */
+.divider {
+  display: flex;
+  align-items: center;
+  width: 80%;
+  margin: 10px 0;
+}
+
+.line {
+  flex: 1;
+  height: 2px;
+  background: rgba(86, 67, 204, 0.5);
+}
+
+.arrow-icon {
+  font-size: 1.5rem;
+  color: #5643CC;
+  margin: 0 10px;
+}
+
+/* Button styles */
+.submit-button {
+  --border-radius: 12px;
+  --background: #5643CC;
+  --background-activated: #4334a9;
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-top: 20px;
+  height: 50px;
+  
+  ion-icon {
+    font-size: 1.2rem;
+  }
+}
+
+/* Sleep tips section */
+.sleep-tips {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  padding: 16px;
+  color: white;
+  
+  h3 {
+    font-family: 'Comfortaa', cursive;
+    margin-top: 0;
+    color: #d1d1f5;
+    font-size: 1.2rem;
+    text-align: center;
+  }
+  
+  ul {
+    padding-left: 20px;
+    
+    li {
+      margin-bottom: 8px;
+      font-size: 0.95rem;
+    }
+  }
+}
